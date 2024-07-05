@@ -4,8 +4,9 @@ import { TouchableOpacity, View } from "react-native";
 import { Feather } from "@expo/vector-icons"
 
 import { styles } from "./styles";
-import { Input } from "../components/input";
 import { theme } from "../themes";
+import { Input } from "../components/input";
+import { Contact } from "../components/contact";
 
 export function Home() {
     const [name, setName] = useState("");
@@ -20,11 +21,16 @@ export function Home() {
                         onChangeText={setName}
                         value={name}
                     />
-                    <TouchableOpacity  onPress={() => setName("")}>
+                    <TouchableOpacity onPress={() => setName("")}>
                         <Feather name="x" size={16} color={theme.colors.gray_300} />
                     </TouchableOpacity>
                 </Input>
             </View>
+
+            <Contact contact={{
+                name: "André",
+                image: require("@/app/assets/image.png")
+            }}  />
         </View>
     )
 }
